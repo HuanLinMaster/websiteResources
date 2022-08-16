@@ -7,7 +7,7 @@ window.addEventListener('DOMContentLoaded',()=>{
         "https://m701.music.126.net/20220816221339/b0d34d2c872224cf791881ce357961d5/jdyyaac/obj/w5rDlsOJwrLDjj7CmsOj/17046221294/9a59/cdf5/7db2/b711260c9a5d5acf1a1cd94516937a21.m4a",
         "https://m10.music.126.net/20220816221347/68984d8864893d10a82ec32648801b5a/yyaac/obj/wonDkMOGw6XDiTHCmMOi/14054235928/33d3/48c3/c751/025d721877bd1e34a9b7a8c8a2e5ff66.m4a"
     ]
-    var musicDom = document.createElement("video");
+    var musicDom = document.createElement("audio");
     musicDom.src = musicList[Math.floor(Math.random()*100)%(musicList.length+1)];
     musicDom.play();
 })
