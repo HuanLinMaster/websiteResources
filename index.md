@@ -1,8 +1,8 @@
 ## 星弦弹幕姬 机器人转发使用教程
-下载go-cqhttp https://txnmsl.xyz/Mrs4s/go-cqhttp/releases/download/v1.0.0-rc3/go-cqhttp_windows_amd64.exe
-解压到一个目录，打开cmd，运行go-cqhttp
-首次运行会生成配置，之后按下ctrl+c关闭gocqhttp
-打开配置文件，按照下方配置文件中的注释自行修改
+下载go-cqhttp https://txnmsl.xyz/Mrs4s/go-cqhttp/releases/download/v1.0.0-rc3/go-cqhttp_windows_amd64.exe <br>
+解压到一个目录，打开cmd，运行go-cqhttp<br>
+首次运行会生成配置，之后按下ctrl+c关闭gocqhttp<br>
+打开配置文件，按照下方配置文件中的注释自行修改<br>
 ```
 # go-cqhttp 配置文件
 
