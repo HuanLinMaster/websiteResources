@@ -1,37 +1,67 @@
-## Welcome to GitHub Pages
-
-You can use the [editor on GitHub](https://github.com/HuanLinMaster/websiteResources/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+## 星弦弹幕姬 机器人转发使用教程
+下载go-cqhttp https://txnmsl.xyz/Mrs4s/go-cqhttp/releases/download/v1.0.0-rc3/go-cqhttp_windows_amd64.exe
+解压到一个目录，打开cmd，运行go-cqhttp
+首次运行会生成配置，之后按下ctrl+c关闭gocqhttp
+打开配置文件，按照下方配置文件中的注释自行修改
 ```
+# go-cqhttp 配置文件
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+account:
+  uin: $$ #$$处请替换为你的账号 
+  password: '￥￥' #￥￥处请替换为你的密码 
+  encrypt: false 
+  status: 0      
+  relogin:
+    delay: 3  
+    interval: 3 
+    max-times: 0  
+  use-sso-address: true
+  allow-temp-session: false
 
-### Jekyll Themes
+heartbeat:
+  interval: 5
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/HuanLinMaster/websiteResources/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+message:
+  post-format: string
+  ignore-invalid-cqcode: true
+  force-fragment: false
+  fix-url: false
+  proxy-rewrite: ''
+  report-self-message: false
+  remove-reply-at: false
+  extra-reply-data: false
+  skip-mime-scan: false
 
-### Support or Contact
+output:
+  log-level: warn
+  log-aging: 15
+  log-force-new: true
+  log-colorful: true
+  debug: false
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+# 默认中间件锚点
+default-middlewares: &default
+  # 这里填访问密钥 可自己设定 需要与星弦弹幕姬中一致
+  access-token: '114514'
+  filter: ''
+  # https://baike.baidu.com/item/%E4%BB%A4%E7%89%8C%E6%A1%B6%E7%AE%97%E6%B3%95/6597000?fr=aladdin
+  rate-limit:
+    enabled: false
+    frequency: 1  
+    bucket: 1 
+
+database:
+  leveldb
+    enable: true
+  cache:
+    image: data/image.db
+    video: data/video.db
+servers:
+  - ws:
+      # 如果运行时报错 请将6700替换成10000-65525之内的数字
+      # 在客户端中的机器人url填入ws://这里的内容
+      # 比如ws://0.0.0.0:6700
+      address: 0.0.0.0:6700
+      middlewares:
+        <<: *default # 引用默认中间件
+```
